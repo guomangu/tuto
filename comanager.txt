@@ -1,0 +1,60 @@
+<?php
+	(mettre fonction date et heure sur l'horloge de paris)
+	date_default_timeout_set('Europe/Paris');
+
+	class ObjetsManager{
+		(declarer la base de donnee que le manager utilise)
+		private $_bdd;
+		
+		(appeller fonction "setbdd()" a l'appelle de la bdd)
+		public function__construct($bdd){
+			$this->setBdd($bdd);
+		}
+
+		(definir la bdd selectionner comme utilisable)
+		public function setBdd(PDO $bdd){
+			$this->_bdd = $bdd;
+		}
+
+============
+		(amener des donnees du bdd avec l'id du objet)
+		public function getObjetById($id){
+
+			(ecrire notre requete en incluant l'id)
+			$requete = $this->_bdd->query('
+				SELECT *
+				FROM table
+				WHERE idLigne ='.$id
+			);
+
+			(lancer la requete et mettre le resultat dans une variable)
+			while($donnees = $requete->fetch(PDO::FETCH_ASSOC)){
+
+				(faire passe les resultat dans fonction qui trans en objet)
+				$objet = $this->creerObjet($donnees)
+			}
+			
+			(retourner l'objet)
+			return $objet;
+		}
+
+		(la fonction qui cree l'objet avec les donnees transmi)
+		public function creerObjet(array $donnees){
+
+			(le new creer l'objet avec la class mdr)
+			$objet = new Class($donnees)
+			return $objet
+		}
+
+============
+
+		(envoyer l'objet dans la bdd)
+		public function addObjet(Objet $objet){
+			$sql = $this->_bdd->prepare('
+				INSERT INTO table(id,nom)
+				VALUES($objet->getIdObjet(),$objet->getNomObjet
+			')	
+		}
+	}
+
+		

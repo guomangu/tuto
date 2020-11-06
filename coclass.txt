@@ -1,0 +1,33 @@
+(gerer l'objet et le rendre fonctionnel)
+
+<?php
+	(declarer valeur)
+	private $_attribut
+	
+	(appeller fonction a creation objet (new caca))
+	public function __construct(array $donnees){
+		$this->hydrate($donnees);
+	}
+	
+	(remplir objet avec valeur)
+	public function hydrate(array $donnees){
+		foreach($donnees as $key => $value){
+			$method = 'set'.ucfirst($key);
+
+			if(method_exist($this,$method)){
+				$this->$method($value);
+			}
+		}	
+	}
+
+==============
+	(definir attribut de l'objet)
+	public function setAttribut($value){
+		$this->_attribut = $value;
+	}
+
+	(obtenir attribut de l'objet)
+	public function getAttribut(){
+		return $this->_attribut;
+	}
+?>

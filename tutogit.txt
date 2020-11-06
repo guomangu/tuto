@@ -1,0 +1,39 @@
+(go endroit a indexé)
+cd ~/my_project_dir
+
+(active git in zone)
+git init
+
+
+
+--------------------
+
+(go endroit)
+cd C:\Users\Stagiaire\Documents\tpguillaume
+
+(amener dossier de page git dans dossperso)
+git clone https://github.com/gyomang/procedural.git
+
+--------------------
+
+(go bonne endroit)
+cd C:\Users\Stagiaire\Documents\tpguillaume\procedural
+
+(ajoute le fichier du doss selec)
+git add ./*
+
+(faire le point sur le dossier a envoy)
+git status
+
+(s'identifier)
+git config --global user.email "gyomang@gmail.com"
+git config --global user.name "gyomang"
+
+(definir le nouveau doss)
+git commit -m"ajout du fichier truite"
+
+(envoy new doss sur origin main)
+git push origin main
+
+(info des commit) 
+git log
