@@ -37,3 +37,13 @@ git push origin main
 
 (info des commit) 
 git log
+
+
+-----------------------
+(voir sur quelle branche on est)
+(on faire venir les new branche
+faut que status soit vide)
+git branch
+
+(choisir sur quelle branche on taf)
+git checkout second
